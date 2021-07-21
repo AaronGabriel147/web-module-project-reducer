@@ -1,11 +1,13 @@
-import React from 'react';
-
+import React, { useReducer } from 'react';
 import './App.css';
-
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
+import reducer from './reducers/index';
+import { initialState } from './reducers/index';
 
-function App() {
+
+function App() {  //                                Not sure about second param.
+  const [calcState, dispatch] = useReducer(reducer, initialState)
 
   return (
     <div className="App">

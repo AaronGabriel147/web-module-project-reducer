@@ -1,5 +1,9 @@
 import { ADD_ONE, APPLY_NUMBER, CHANGE_OPERATION } from './../actions';
 
+// NEEDS CONST's EXPORTED, A LOT!
+// All these exports must also be imported to wherever they are going. (App.js I think)
+
+
 export const initialState = {
     total: 100,
     operation: "*",
@@ -9,7 +13,7 @@ export const initialState = {
 const calculateResult = (num1, num2, operation) => {
     switch(operation) {
         case("+"):
-            return num1 + num2;
+            return num1 + num2;        // ALL STRINGS NEED TO BE CONST's
         case("*"):
             return num1 * num2;
         case("-"):
@@ -19,7 +23,7 @@ const calculateResult = (num1, num2, operation) => {
 
 const reducer = (state, action) => {
     switch(action.type) {
-        case(ADD_ONE):
+        case(ADD_ONE):                 // NEEDS TO BE A CONST
             return({
                 ...state,
                 total: state.total + 1
