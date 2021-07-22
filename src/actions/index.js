@@ -4,9 +4,9 @@ export const CHANGE_OPERATION = "CHANGE_OPERATION";
 
 
 export const addOne = () => {
-    return({ type:ADD_ONE });
+    return({ type: ADD_ONE, payload: 1 });
 }
 
 export const applyNumber = (number) => {
-    return( {type:APPLY_NUMBER, payload:number} );
+    return( { type: APPLY_NUMBER, payload: number } );
 }

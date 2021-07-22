@@ -4,10 +4,20 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 import reducer from './reducers/index';
 import { initialState } from './reducers/index';
-
+import { addOne } from './actions';
 
 function App() {  //                                Not sure about second param.
   const [calcState, dispatch] = useReducer(reducer, initialState)
+
+  const handleMplus = (e) => {
+    e.preventDefault();
+    dispatch({ type: "MPLUS", payload: "M+" })
+  }
+
+  const handleOne = (e) => {
+    e.preventDefault();
+    dispatch(addOne())
+  }
 
   return (
     <div className="App">
@@ -19,20 +29,20 @@ function App() {  //                                Not sure about second param.
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
             
-            <TotalDisplay value={0}/>
+            <TotalDisplay value={calcState.total}/>
             <div className="row details">
-              <span id="operation"><b>Operation:</b> X</span>
-              <span id="memory"><b>Memory:</b> 0</span>
+              <span id="operation"><b>Operation:</b>{calcState.operation}</span>
+              <span id="memory"><b>Memory:</b>{calcState.memory}</span>
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"}/>
+              <CalcButton value={"M+"} onClick={handleMplus} type="button" />
               <CalcButton value={"MR"}/>
               <CalcButton value={"MC"}/>
             </div>
 
             <div className="row">
-              <CalcButton value={1}/>
+              <CalcButton value={1} onClick={handleOne} type="button"/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
