@@ -10,8 +10,8 @@ const initialState = {
 
 { type: "ADD_HOBBY", payload: newHobby }
 
-case "ADD_HOBBY":
-  return {
-    ...state,
-    hobbies: [...state.hobbies, action.payload]
-  }
+// case "ADD_HOBBY":
+//   return {
+//     ...state,
+//     hobbies: [...state.hobbies, action.payload]
+//   }
